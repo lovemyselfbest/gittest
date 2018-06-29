@@ -1,0 +1,12 @@
+docker pull zookeeper
+docker run --name container-zookeeper --restart always -d zookeeper
+
+
+docker run -p 2181:2181 -v /mnt/zookeeper/conf:/conf -dit  zookeeper
+docker exec -it eaec  bash
+
+/* 给容器命名 */
+docker run --name=myzookeeper -p 2181:2181 -v /mnt/zookeeper/conf:/conf -dit  zookeeper
+docker container start myzookeeper
+docker exec -it myzookeeper  bash
+
